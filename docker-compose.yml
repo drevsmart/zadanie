@@ -1,36 +1,15 @@
-version: '3'
-services:
-    front:
-        image: nginx:latest
-        ports:
-            - "80:80"
-        volumes:
-            - ./nginx:/etc/nginx/sites-enabled
-            - /var/www/html/frontend:/var/www/html
-            - /var/logs/nginx:/var/log/nginx
-        links:
-            - php
-    php:
-        image: otezvikentiy/php7.2-fpm:0.0.11
-        volumes:
-            - /var/www:/var/www
-    backend_1:
-        image: nginx:latest
-        ports:
-            - "82:82"
-        volumes:
-            - ./nginx:/etc/nginx/sites-enabled
-            - /var/www/html/backend_1:/var/www/html
-            - /var/logs/nginx:/var/log/nginx
-        links: 
-            - php      
-    backend_2:
-        image: nginx:latest
-        ports:
-            - "83:83"
-        volumes:
-            - ./nginx:/etc/nginx/sites-enabled
-            - /var/www/html/backend_2:/var/www/html
-            - /var/logs/nginx:/var/log/nginx      
-        links: 
-            - php
+web:
+    image: nginx:latest
+    ports:
+        - "81:81"
+    volumes:
+        - ./backend_1:/backend_1
+        - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
+    links:
+        - php
+php:
+    image: php:7-fpm
+    ports:
+        - "9000:9000"
+    volumes:
+        - ./backend_1:/backend_1      
