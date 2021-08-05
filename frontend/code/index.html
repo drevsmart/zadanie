@@ -41,7 +41,7 @@
 			function clickHandler() {		
 								
 				$.ajax({
-				  url: "http://0.0.0.0:81/sum.php",
+				  url: "http://localhost:81/sum.php",
 				  type: "post",
 				  data: { 
 					a: $("#a").val(), 
@@ -58,7 +58,7 @@
 				});
 				
 				$.ajax({
-				  url: "http://localhos:82/mult.php",
+				  url: "http://localhost:82/mult.php",
 				  type: "post",
 				  data: { 
 					a: $("#a").val(), 
@@ -86,7 +86,7 @@
 
 
 				$.ajax({
-                                  url: "http://0.0.0.0:82/hostnamemult.php",
+                                  url: "http://localhost:82/hostnamemult.php",
                                 /*  type: "post",*/
                                   success: function(host2) {
                                         $("#servMult").val(host2);
