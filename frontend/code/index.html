@@ -41,7 +41,7 @@
 			function clickHandler() {		
 								
 				$.ajax({
-				  url: "http://84.201.161.52/sum.php",
+				  url: "http://0.0.0.0:81/sum.php",
 				  type: "post",
 				  data: { 
 					a: $("#a").val(), 
@@ -58,7 +58,7 @@
 				});
 				
 				$.ajax({
-				  url: "http://84.201.161.52/mult.php",
+				  url: "http://localhos:82/mult.php",
 				  type: "post",
 				  data: { 
 					a: $("#a").val(), 
@@ -74,7 +74,7 @@
                                 
 
 				 $.ajax({
-                                  url: "http://84.201.161.52/hostnamesum.php",
+                                  url: "http://localhost:81/hostnamesum.php",
                                 /*  type: "post",*/
                                   success: function(host) {
                                         $("#servSum").val(host);
@@ -86,7 +86,7 @@
 
 
 				$.ajax({
-                                  url: "http://84.201.161.52/hostnamemult.php",
+                                  url: "http://0.0.0.0:82/hostnamemult.php",
                                 /*  type: "post",*/
                                   success: function(host2) {
                                         $("#servMult").val(host2);

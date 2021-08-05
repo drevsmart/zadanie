@@ -1,8 +1,7 @@
 FROM nginx:latest	
 
-COPY  ./frontend /usr/share/nginx/html
-COPY  ./file1 /usr/share/nginx/html
-COPY  ./file2 /usr/share/nginx/html
+COPY  ./code /usr/share/nginx/html
+COPY  ./nginx/default.conf /etc/nginx/conf.d/
 
 EXPOSE 80
 
