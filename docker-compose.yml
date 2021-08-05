@@ -1,19 +1,21 @@
 version: "3.9"
 
 services:
-    frontend:
+    frontend:        
         build:
           context: ./frontend
           dockerfile: Dockerfile
-        container_name: front
         ports:
-          - "80:80"
+        - "80:80"
     backend_1:
         build:    
           context: ./backend_1
           dockerfile: Dockerfile
+        ports:
+        - "81:81"
     backend_2:
         build:    
            context: ./backend_2
            dockerfile: Dockerfile
-           
+        ports:
+        - "82:82"        
