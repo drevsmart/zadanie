@@ -1,15 +1,19 @@
-web:
-    image: nginx:latest
-    ports:
-        - "81:81"
-    volumes:
-        - ./backend_1:/backend_1
-        - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
-    links:
-        - php
-php:
-    image: php:7-fpm
-    ports:
-        - "9000:9000"
-    volumes:
-        - ./backend_1:/backend_1      
+version: "3.9"
+
+services:
+    frontend:
+        build:
+          context: ./frontend
+          dockerfile: Dockerfile
+        container_name: front
+        ports:
+          - "80:80"
+    backend_1:
+        build:    
+          context: ./backend_1
+          dockerfile: Dockerfile
+    backend_2:
+        build:    
+           context: ./backend_2
+           dockerfile: Dockerfile
+           
